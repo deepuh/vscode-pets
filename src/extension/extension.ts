@@ -32,6 +32,7 @@ const ALL_PETS = [
     PetType.snake,
     PetType.totoro,
     PetType.zappy,
+    PetType.penguin,
 ];
 const ALL_COLORS = [
     PetColor.black,
@@ -455,6 +456,9 @@ export function activate(context: vscode.ExtensionContext) {
                     case PetType.zappy:
                         petColor = PetColor.yellow;
                         break;
+		    case PetType.penguin:
+			petColor = PetColor.black;
+			break;
                 }
 
                 if (petColor === undefined) {
@@ -611,6 +615,9 @@ function normalizeColor(petColor: PetColor, petType: PetType): PetColor {
     }
     if (petType === PetType.crab) {
         return PetColor.red;
+    }
+    if (petType === PetType.penguin) {
+        return PetColor.black;
     }
     if (
         petType === PetType.dog &&
